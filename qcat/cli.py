@@ -231,22 +231,26 @@ def iter_fastx(reads_fx, fastq, batchsize):
             logging.debug("Reading from stdin")
             f = sys.stdin
 
-        for title, seq, qual in FastqGeneralIterator(f):
-            name, comment = extract_fastx_comment(title)
+        try:
+            for title, seq, qual in FastqGeneralIterator(f):
+                name, comment = extract_fastx_comment(title)
 
-            # batch.append((name, comment, seq, qual))
-            names.append(name)
-            comments.append(comment)
-            seqs.append(seq)
-            quals.append(qual)
+                # batch.append((name, comment, seq, qual))
+                names.append(name)
+                comments.append(comment)
+                seqs.append(seq)
+                quals.append(qual)
 
-            if len(names) >= batchsize:
-                yield names, comments, seqs, quals
-                # batch = []
-                names = []
-                comments = []
-                seqs = []
-                quals = []
+                if len(names) >= batchsize:
+                    yield names, comments, seqs, quals
+                    # batch = []
+                    names = []
+                    comments = []
+                    seqs = []
+                    quals = []
+        except ValueError as e:
+            logging.error(e.message)
+            sys.exit(1)
 
         if reads_fx:
             logging.debug("Closing file {}".format(reads_fx))
