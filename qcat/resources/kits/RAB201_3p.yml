@@ -98,6 +98,6 @@ barcode_set_1:
 barcode_set_2: []
 description: 16S Rapid Amplicon Barcoding Kit with 12 Barcodes
 auto_detect: true
-kit: RAB201
+kit: RAB204
 model: null
 sequence: CCGTGACNNNNNNNNNNNNNNNNNNNNNNNNCGGTTACCTTGTTACGACTT
