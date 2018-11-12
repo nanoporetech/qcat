@@ -7,7 +7,7 @@ Qcat is Python command-line tool for demultiplexing Oxford Nanopore reads from F
 
 |Algorithm | Status |Description  |
 |--|--|--|
-|Guppy/Albacore (default, if available) | not yet available | Using this mode, qcat will produce demultiplexing results identical to Albacore. |
+|Guppy/Albacore | not yet available | Using this mode, qcat will produce demultiplexing results identical to Albacore. |
 | EPI2ME | available | Using this mode, qcat will produce demultiplexing results identical to EPI2ME's demultiplexing workflow |
 
 In addition, qcat supports demultiplexing of datasets prepared using dual or combinatorial barcodes (see "How to run qcat?" section for more information). 
