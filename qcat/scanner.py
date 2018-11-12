@@ -75,7 +75,7 @@ def get_kits(kit_folder=None):
     return names
 
 
-def factory(mode="guppy", min_quality=None, kit=None, kit_folder=None,
+def factory(mode="epi2me", min_quality=None, kit=None, kit_folder=None,
             enable_filter_barcodes=False, scan_middle_adapter=False, threads=1):
     """
     Create a BarcodeScanner object
