@@ -1,0 +1,55 @@
+barcode_set_1:
+- fwd_strand: true
+  id: 1
+  name: barcode01
+  sequence: AAGAAAGTTGTCGGTGTCTTTGTG
+- fwd_strand: true
+  id: 2
+  name: barcode02
+  sequence: TCGATTCCGTTTGTAGTCGTCTGT
+- fwd_strand: true
+  id: 3
+  name: barcode03
+  sequence: GAGTCTTGTGTCCCAGTTACCAGG
+- fwd_strand: true
+  id: 4
+  name: barcode04
+  sequence: TTCGGATTCTATCGTGTTTCCCTA
+- fwd_strand: true
+  id: 5
+  name: barcode05
+  sequence: CTTGTCCAGGGTTTGTGTAACCTT
+- fwd_strand: true
+  id: 6
+  name: barcode06
+  sequence: TTCTCGCAAAGGCAGAAAGTAGTC
+- fwd_strand: true
+  id: 7
+  name: barcode07
+  sequence: GTGTTACCGTGGGAATGAATCCTT
+- fwd_strand: true
+  id: 8
+  name: barcode08
+  sequence: TTCAGGGAACAAACCAAGTTACGT
+- fwd_strand: true
+  id: 9
+  name: barcode09
+  sequence: AACTAGGCACAGCGAGTCTTGGTT
+- fwd_strand: true
+  id: 10
+  name: barcode10
+  sequence: AAGCGTTGAAACCTTTGTCCTCTC
+- fwd_strand: true
+  id: 11
+  name: barcode11
+  sequence: GTTTCATCTATCGGAGGGAATGGA
+- fwd_strand: true
+  id: 12
+  name: barcode12
+  sequence: CAGGTAGAAAGAAGCAGAATCGGA
+barcode_set_2: []
+description: Rapid barcoding kit v4
+auto_detect: true
+kit: RBK004
+model: null
+sequence: GCTTGGGTGTTTAACCNNNNNNNNNNNNNNNNNNNNNNNNGTTTTCGCATTTATCGTGAAACGCTTTCGCGTTTTTCGTGCGCCGCTTCA

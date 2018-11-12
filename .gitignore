@@ -1,1 +1,6 @@
 tmp/
+.DS_Store
+.idea/
+*egg*
+.pytest_cache
+.coverage
