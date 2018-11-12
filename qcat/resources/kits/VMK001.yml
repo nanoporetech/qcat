@@ -18,6 +18,6 @@ barcode_set_1:
 barcode_set_2: []
 description: Voltrax Barcoding Kit with 4 barcodes
 auto_detect: false
-kit: VMK
+kit: VMK001
 model: null
 sequence: AATGTACTTCGTTCAGTTACGTATTGCTNNNNNNNNNNNNNNNNNNNNNNNNGTTTTCGCATTTATCGTGAAACGCTTTCGCGTTTTTCGTGCGCCGCTTCA
