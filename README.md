@@ -1,11 +1,12 @@
 
+
 Qcat
 ======
 
 Qcat is Python command-line tool for demultiplexing Oxford Nanopore reads from FASTQ files. It accepts basecalled FASTQ files and splits the reads into into separate FASTQ files based on their barcode. Qcat makes the demultiplexing algorithms used in albacore/guppy and EPI2ME available to be used locally with FASTQ files. Currently qcat implements the EPI2ME algorithm. In the next version we will add the albacore/guppy algorithm.
 
 |Algorithm | Status |Description  |
-|--|--|
+|--|--|--|
 |Guppy/Albacore (default, if available) | not yet available | Using this mode, qcat will produce demultiplexing results identical to Albacore. |
 | EPI2ME | available | Using this mode, qcat will produce demultiplexing results identical to EPI2ME's demultiplexing workflow |
 
