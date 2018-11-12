@@ -96,7 +96,7 @@ def parse_args(argv):
                         action='store_true',
                         help="Prints a tsv file containing barcode information "
                              "each read to stdout.")
-    general_group.add_argument("--trimmed",
+    general_group.add_argument("--trim",
                         dest="TRIM",
                         action='store_true',
                         help="Remove adapter and barcode sequences from reads.")
@@ -123,7 +123,7 @@ def parse_args(argv):
     group.add_argument("--epi2me",
                        dest="MODE_EPI2ME",
                        action='store_true',
-                       help="Use epi2me's demultiplexing algorithm (default: false)")
+                       help="Use epi2me's demultiplexing algorithm (default: true)")
     group.add_argument("--dual",
                        dest="MODE_DUAL",
                        action='store_true',
