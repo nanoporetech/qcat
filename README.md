@@ -26,7 +26,7 @@ Installing qcat
 ------------
 **Conda (recommended)**
 
-To install qcat using conda, make sure you have [Miniconda3](https://conda.io/miniconda.html) installed and the [bioconda](https://bioconda.github.io/) channels set up. After bioconda is set up, you can install qcat as follows:
+To install qcat using conda, make sure you have [Miniconda3](https://conda.io/miniconda.html) installed and the [bioconda](https://bioconda.github.io/#install-conda) channels set up. After bioconda is set up, you can install qcat as follows:
 ```bash
 $ conda install qcat
 ```
