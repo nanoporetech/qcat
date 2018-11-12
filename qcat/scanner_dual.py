@@ -13,7 +13,7 @@ class BarcodeScannerDual(BarcodeScanner):
     def __init__(self, min_quality=None, kit_folder=None, kit=None, enable_filter_barcodes=False, scan_middle_adapter=False, threads=1):
 
         if min_quality is None:
-            min_quality = 58
+            min_quality = 60
 
         if threads != 1:
             logging.warning("Multi threading is not yet supported in "
