@@ -19,7 +19,9 @@ from qcat.scanner import get_modes, factory, get_kits_info, get_kits
 
 def get_mode(args):
     if args.MODE_GUPPY:
-        return "guppy"
+        logging.warning("Guppy/albacore barcoding is not yet supported. "
+                        "Falling back to epi2me.")
+        return "epi2me"
     if args.MODE_EPI2ME:
         return "epi2me"
     if args.MODE_SIMPLE:
@@ -27,7 +29,7 @@ def get_mode(args):
     if args.MODE_DUAL:
         return "dual"
 
-    return "guppy"
+    return "epi2me"
 
 
 def parse_args(argv):
@@ -117,7 +119,7 @@ def parse_args(argv):
     group.add_argument("--guppy",
                         dest="MODE_GUPPY",
                         action = 'store_true',
-                        help="Use guppy's demultiplexing algorithm (default: true)")
+                        help="Use guppy's demultiplexing algorithm (default: false)")
     group.add_argument("--epi2me",
                        dest="MODE_EPI2ME",
                        action='store_true',
