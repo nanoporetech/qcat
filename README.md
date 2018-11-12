@@ -4,10 +4,10 @@ Qcat
 
 Qcat is Python command-line tool for demultiplexing Oxford Nanopore reads from FASTQ files. It accepts basecalled FASTQ files and splits the reads into into separate FASTQ files based on their barcode. Qcat makes the demultiplexing algorithms used in albacore/guppy and EPI2ME available to be used locally with FASTQ files. Currently qcat implements the EPI2ME algorithm. In the next version we will add the albacore/guppy algorithm.
 
-|Algorithm  |Description  |
+|Algorithm | Status |Description  |
 |--|--|
-|Guppy/Albacore (default, if available)  | Using this mode, qcat will produce demultiplexing results identical to Albacore. |
-| EPI2ME | Using this mode, qcat will produce demultiplexing results identical to EPI2ME's demultiplexing workflow |
+|Guppy/Albacore (default, if available) | not yet available | Using this mode, qcat will produce demultiplexing results identical to Albacore. |
+| EPI2ME | available | Using this mode, qcat will produce demultiplexing results identical to EPI2ME's demultiplexing workflow |
 
 In addition, qcat supports demultiplexing of datasets prepared using dual or combinatorial barcodes (see "How to run qcat?" section for more information). 
 
@@ -24,22 +24,25 @@ After qcat finished, please check to summary output to verify that a barcode was
 Installing qcat
 ------------
 **Conda (recommended)**
+
 To install qcat using conda, make sure you have [Miniconda3](https://conda.io/miniconda.html) installed and the [bioconda](https://bioconda.github.io/) channels set up. After bioconda is set up, you can install qcat as follows:
 ```bash
 $ conda install qcat
 ```
 
 **PIP**
+
 If you want to install qcat using pip, please make sure to use python3.
 ```bash
-$ pip install --user git+https://github.com/nanoporetech/qcat.git#egg=qcat
+$ pip3 install --user git+https://github.com/nanoporetech/qcat.git#egg=qcat
 ```
 To install qcat using pip for all users on a system, run (requires root permissions):
 ```bash
-$ pip install git+https://github.com/nanoporetech/qcat.git#egg=qcat
+$ pip3 install git+https://github.com/nanoporetech/qcat.git#egg=qcat
 ```
 
 **Docker**
+
 If you have [docker](https://docs.docker.com/install/) available on your computer, you can run qcat using the following command without any prior installation:
 ```bash
 $ docker run -to -v `pwd`:`pwd` -w `pwd` philres/qcat qcat -f ./input_folder/ -b ./output_folder/
@@ -47,11 +50,12 @@ $ docker run -to -v `pwd`:`pwd` -w `pwd` philres/qcat qcat -f ./input_folder/ -b
 When running qcat using the above command, the input and output folders have to be in the current working directory. If you want to read from or write to locations other than your working directory, please adjust the `-v` parameter accordingly.
 
 **Manual**
-To make changes to qcats source code, please make sure that you use Ubuntu Xenial, read the documentation in the GitHub repository, and install as follows:
+
+To install qcat manually, please make sure you have python3 and git available, and install as follows:
 ```bash
-$ git clone https://<ONT UrL>#egg=qcat
+$ git clone https://github.com/nanoporetech/qcat.git
 $ cd qcat
-$ python setup.py install
+$ python3 setup.py install
 ```
 
 How to run qcat
@@ -127,6 +131,10 @@ $ qcat -f single_file.fastq -b output_folder/
 ### I want to use Albacore's algorithm for demultiplexing, but get a warning saying "Demultiplexing mode guppy currently not supported. Falling back to epi2me."
 
 Currently, Albacore's demultiplexing algorithm is only supported when running the qcat docker image. In the next version, we will support other ways of running Guppy/Albacore demultiplexing as well.
+
+### Can qcat trim adapters without barcodes?
+
+Currently qcat only supports demultiplexing. However, in the future we plan to add a trimming only mode as well.
 
 ### What is "simple" mode?
 
