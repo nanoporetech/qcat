@@ -148,7 +148,7 @@ In simple mode qcat will only search for barcode sequences without trying to det
 | Auto  | Auto detect kit |
 | RBK001  | Rapid barcoding kit |
 | RBK004 | Rapid barcoding kit v4 |
-| NBD103/NBD104 | Native barcoding kit with barcoes 1-12 |
+| NBD103/NBD104 | Native barcoding kit with barcodes 1-12 |
 | NBD114  | Native barcoding kit with barcodes 13-24 |
 | NBD104/NBD114 | Native barcoding kit with barcodes 1-24 |
 | PBC001 | PCR Barcoding Kit with 12 barcodes |
