@@ -98,8 +98,6 @@ def factory(mode="guppy", min_quality=None, kit=None, kit_folder=None,
         mode = "epi2me"
 
 
-    print(use_pyguppy)
-    print(mode)
     for subclass in BarcodeScanner.__subclasses__():
         if mode == subclass.get_name():
             return subclass(min_quality=min_quality,
