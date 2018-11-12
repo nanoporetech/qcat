@@ -14,7 +14,6 @@ setup(
     author='Oxford Nanopore Technologies Ltd.',
     author_email='philipp.rescheneder@nanoporetech.com',
     description='Demultiplexing Nanopore read FASTQ files',
-    setup_requires=['pytest-runner'],
     install_requires=[
         'biopython',
         'parasail',
@@ -25,6 +24,7 @@ setup(
         'DOCS': ['sphinx>=1.3.1'],
     },
     tests_require=[
+        'pytest-runner',
         'pytest',
         'pytest-cov',
     ],
@@ -33,9 +33,7 @@ setup(
     ],
     package_data={
         'qcat': [
-            'resources/*',
             'resources/kits/*',
-            'resources/models/*',
         ]
     },
 
