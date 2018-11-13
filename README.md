@@ -37,7 +37,7 @@ $ conda install qcat
 
 **PIP** 
 
-[![PyPI version](https://badge.fury.io/py/qcat.png)](https://badge.fury.io/py/qcat)
+[![PyPI version](https://badge.fury.io/py/qcat.svg)](https://badge.fury.io/py/qcat)
 
 If you want to install qcat using pip, please make sure to use python3.
 ```bash
@@ -57,6 +57,8 @@ $ docker run -to -v `pwd`:`pwd` -w `pwd` quay.io/biocontainers/qcat:1.0.0--0 qca
 When running qcat using the above command, the input and output folders have to be in the current working directory. If you want to read from or write to locations other than your working directory, please adjust the `-v` parameter accordingly.
 
 **Manually install from source**
+
+[![GitHub version](https://badge.fury.io/gh/nanoporetech%2Fqcat.svg)](https://badge.fury.io/gh/nanoporetech%2Fqcat)
 
 To install qcat manually, please make sure you have python3 and git available, and install as follows:
 ```bash
