@@ -1,5 +1,3 @@
-
-
 qcat
 ======
 
@@ -28,14 +26,18 @@ After qcat finished, please check to summary output to verify that a barcode was
 
 Installation 
 ------------
-**Conda (recommended)**
+**Conda (recommended)** 
+
+[![Anaconda-Server Badge](https://anaconda.org/bioconda/qcat/badges/version.svg)](https://anaconda.org/bioconda/qcat)
 
 To install qcat using conda, make sure you have [Miniconda3](https://conda.io/miniconda.html) installed and the [bioconda](https://bioconda.github.io/#install-conda) channels set up. After bioconda is set up, you can install qcat as follows:
 ```bash
 $ conda install qcat
 ```
 
-**PIP**
+**PIP** 
+
+[![PyPI version](https://badge.fury.io/py/qcat.png)](https://badge.fury.io/py/qcat)
 
 If you want to install qcat using pip, please make sure to use python3.
 ```bash
