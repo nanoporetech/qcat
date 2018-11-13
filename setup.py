@@ -10,10 +10,11 @@ from qcat import __version__
 setup(
     name='qcat',
     version=__version__,
-    url='',
+    url='https://github.com/nanoporetech/qcat/',
+    license='Mozilla Public License Version 2.0',
+    description="Qcat is Python command-line tool for demultiplexing Oxford Nanopore reads from FASTQ files",
     author='Oxford Nanopore Technologies Ltd.',
     author_email='philipp.rescheneder@nanoporetech.com',
-    description='Demultiplexing Nanopore read FASTQ files',
     install_requires=[
         'biopython',
         'parasail',
