@@ -4,3 +4,7 @@ tmp/
 *egg*
 .pytest_cache
 .coverage
+build/
+dist/
+*.pyc
+
