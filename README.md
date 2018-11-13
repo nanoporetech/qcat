@@ -81,7 +81,7 @@ $ qcat -f <fastq_file> -b <output folder>
 $ qcat --dual -f <fastq_file> -b <output folder>
 ```
 
-What does the output looks like?
+What does the output look like?
 --------------------------------
 
 ### Demultiplexing
