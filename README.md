@@ -63,8 +63,8 @@ $ cd qcat
 $ python3 setup.py install
 ```
 
-How to run qcat
----------------
+How to run qcat?
+----------------
 
 **Demultiplexing multiple FASTQ files from a folder**
 ```bash
@@ -79,8 +79,8 @@ $ qcat -f <fastq_file> -b <output folder>
 $ qcat --dual -f <fastq_file> -b <output folder>
 ```
 
-What the output looks like
-------------------------------
+What does the output looks like?
+--------------------------------
 
 ### Demultiplexing
 Qcat will give you a summary of what barcodes where found and how many on the command line. For example:
