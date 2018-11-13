@@ -14,6 +14,10 @@ In addition, qcat supports demultiplexing of datasets prepared using dual or com
 
 If you want to demultiplex your reads during basecalling, please use [albacore](https://github.com/nanoporetech/albacore).
 
+Requirements
+------------
+* Linux or MacOS
+
 Quick start
 -----------
 For the vast majority of datasets, it will be sufficient to run qcat using default parameters:
@@ -22,7 +26,7 @@ $ qcat -f <fastq_file> -b <output folder>
 ```
 After qcat finished, please check to summary output to verify that a barcode was assigned to most of the reads.
 
-Installing qcat
+Installation 
 ------------
 **Conda (recommended)**
 
@@ -50,7 +54,7 @@ $ docker run -to -v `pwd`:`pwd` -w `pwd` quay.io/biocontainers/qcat:1.0.0--0 qca
 ```
 When running qcat using the above command, the input and output folders have to be in the current working directory. If you want to read from or write to locations other than your working directory, please adjust the `-v` parameter accordingly.
 
-**Manual**
+**Manually install from source**
 
 To install qcat manually, please make sure you have python3 and git available, and install as follows:
 ```bash
