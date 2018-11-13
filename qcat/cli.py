@@ -9,7 +9,7 @@ import six
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 from Bio.SeqIO.QualityIO import FastqGeneralIterator
 
-from argparse import ArgumentParser, RawDescriptionHelpFormatter
+from argparse import ArgumentParser, RawDescriptionHelpFormatter, ArgumentTypeError
 
 from qcat import __version__, adapters, config
 from qcat import scanner
@@ -30,6 +30,22 @@ def get_mode(args):
         return "dual"
 
     return "epi2me"
+
+
+def check_minqual_arg(x):
+    x = float(x)
+    if x < 0.0 or x > 100.0:
+        raise ArgumentTypeError("Minimum quality must be a value between 0 and 100.")
+    return x
+
+
+def check_kit_arg(x):
+    x = str(x)
+    if x.lower() == "dual":
+        raise ArgumentTypeError(
+            "-k dual and --kit dual are not supported any more. "
+            "Please use --dual instead.")
+    return x
 
 
 def parse_args(argv):
@@ -79,9 +95,10 @@ def parse_args(argv):
                              "(default: stdout).")
     general_group.add_argument('-q', "--min-quality",
                         dest="min_qual",
-                        type=float,
+                        type=check_minqual_arg,
                         default=None,
-                        help="Minimum barcode quality.")
+                        help="Minimum barcode quality. "
+                             "Must be between 0 and 100. (default: 60)")
     general_group.add_argument("--detect-middle",
                         dest="DETECT_MIDDLE",
                         action='store_true',
@@ -103,6 +120,7 @@ def parse_args(argv):
     general_group.add_argument("-k", "--kit",
                                dest="kit",
                                choices=get_kits(),
+                               type=check_kit_arg,
                                default="auto",
                                help="Sequencing kit. Specifying the correct kit "
                                     "will improve sensitivity and specificity and "
