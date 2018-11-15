@@ -60,7 +60,7 @@ def parse_args(argv):
     :return: None
     """
     defaults = config.get_default_config()
-    usage = "Command line interface to barcode detection library"
+    usage = "Python command-line tool for demultiplexing Oxford Nanopore reads from FASTQ files"
     parser = ArgumentParser(description=usage,
                             formatter_class=RawDescriptionHelpFormatter)
     parser.add_argument("-V", '--version',
@@ -85,7 +85,7 @@ def parse_args(argv):
                         dest="barcode_dir",
                         type=str,
                         default=None,
-                        help="If specified, qcat will demultiplex reads"
+                        help="If specified, qcat will demultiplex reads "
                              "to this folder")
     general_group.add_argument('-o', "--output",
                         dest="output",
@@ -137,11 +137,11 @@ def parse_args(argv):
     group.add_argument("--guppy",
                         dest="MODE_GUPPY",
                         action = 'store_true',
-                        help="Use guppy's demultiplexing algorithm (default: false)")
+                        help="Use Guppy's demultiplexing algorithm (default: false)")
     group.add_argument("--epi2me",
                        dest="MODE_EPI2ME",
                        action='store_true',
-                       help="Use epi2me's demultiplexing algorithm (default: true)")
+                       help="Use EPI2ME's demultiplexing algorithm (default: true)")
     group.add_argument("--dual",
                        dest="MODE_DUAL",
                        action='store_true',
@@ -149,9 +149,9 @@ def parse_args(argv):
     group.add_argument("--simple",
                        dest="MODE_SIMPLE",
                        action='store_true',
-                       help="Use simple demultiplexing algorith. Only looks for "
-                            "barcodes no for adapter sequences. Use only for testing"
-                            "purpose!")
+                       help="Use simple demultiplexing algorithm. Only looks for "
+                            "barcodes, not for adapter sequences. Use only for testing "
+                            "purposes!")
 
     # EPI2ME
     epi2me_group = parser.add_argument_group('EPI2ME options (only valid with --epi2me)')
