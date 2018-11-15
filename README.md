@@ -162,7 +162,7 @@ In simple mode qcat will only search for barcode sequences without trying to det
 | PBC001 | PCR Barcoding Kit with 12 barcodes |
 | PBC096 | PCR Barcoding Kit with 96 barcodes |
 | RPB004/RLB001  | Rapid PCR Barcoding Kit (SQK-RPB004) and Rapid Low Input by PCR Barcoding Kit |
-| LWB001 | Low Input by PCR Barcoding Kit |
+| PBK004/LWB001 | Low Input by PCR Barcoding Kit |
 | RAB204 | 16S Rapid Amplicon Barcoding Kit with 12 Barcodes  |
 | VMK001 | Voltrax Barcoding Kit with 4 barcodes |
 
@@ -172,13 +172,13 @@ Full usage
 ```
 usage: qcat [-h] [-V] [-l LOG] [--quiet] [-f FASTQ] [-b BARCODE_DIR]
             [-o OUTPUT] [-q MIN_QUAL] [--detect-middle] [-t THREADS] [--tsv]
-            [--trimmed]
-            [-k {Auto,DUAL,LWB001,NBD103/NBD104,NBD104/NBD114,NBD114,PBC001,PBC096,RAB201,RBK001,RBK004,RPB004/RLB001,VMK}]
+            [--trim]
+            [-k {Auto,DUAL,NBD103/NBD104,NBD104/NBD114,NBD114,PBC001,PBC096,PBK004/LWB001,RAB204,RBK001,RBK004,RPB004/RLB001,VMK001}]
             [--list-kits] [--guppy | --epi2me | --dual | --simple]
             [--no-batch] [--filter-barcodes]
             [--simple-barcodes {standard,extended}]
 
-Command-line interface to barcode detection library
+Python command-line tool for demultiplexing Oxford Nanopore reads from FASTQ files
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -196,22 +196,23 @@ General settings:
                         Output file trimmed reads will be written to (default:
                         stdout).
   -q MIN_QUAL, --min-quality MIN_QUAL
-                        Minimum barcode quality.
+                        Minimum barcode quality. Must be between 0 and 100.
+                        (default: 60)
   --detect-middle       Search for adapters in the whole read
   -t THREADS, --threads THREADS
                         Number of threads. Only works with in guppy mode
   --tsv                 Prints a tsv file containing barcode information each
                         read to stdout.
-  --trimmed             Remove adapter and barcode sequences from reads.
-  -k {Auto,DUAL,LWB001,NBD103/NBD104,NBD104/NBD114,NBD114,PBC001,PBC096,RAB201,RBK001,RBK004,RPB004/RLB001,VMK}, --kit {Auto,DUAL,LWB001,NBD103/NBD104,NBD104/NBD114,NBD114,PBC001,PBC096,RAB201,RBK001,RBK004,RPB004/RLB001,VMK}
+  --trim                Remove adapter and barcode sequences from reads.
+  -k {Auto,DUAL,NBD103/NBD104,NBD104/NBD114,NBD114,PBC001,PBC096,PBK004/LWB001,RAB204,RBK001,RBK004,RPB004/RLB001,VMK001}, --kit {Auto,DUAL,NBD103/NBD104,NBD104/NBD114,NBD114,PBC001,PBC096,PBK004/LWB001,RAB204,RBK001,RBK004,RPB004/RLB001,VMK001}
                         Sequencing kit. Specifying the correct kit will
                         improve sensitivity and specificity and runtime
                         (default: auto)
   --list-kits           List all supported kits
 
 Demultiplexing modes:
-  --guppy               Use Guppy's demultiplexing algorithm (default: true)
-  --epi2me              Use EPI2ME's demultiplexing algorithm (default: false)
+  --guppy               Use Guppy's demultiplexing algorithm (default: false)
+  --epi2me              Use EPI2ME's demultiplexing algorithm (default: true)
   --dual                Use dual barcoding algorithm
   --simple              Use simple demultiplexing algorithm. Only looks for
                         barcodes, not for adapter sequences. Use only for
