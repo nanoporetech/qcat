@@ -52,7 +52,7 @@ $ pip install qcat
 
 If you have [docker](https://docs.docker.com/install/) available on your computer, you can run qcat using the following command without any prior installation:
 ```bash
-$ docker run -to -v `pwd`:`pwd` -w `pwd` quay.io/biocontainers/qcat:1.0.0--py_0quay.io/biocontainers/qcat:1.0.0--py_0 qcat -f ./input_folder/ -b ./output_folder/
+$ docker run -ti -v `pwd`:`pwd` -w `pwd` quay.io/biocontainers/qcat:1.0.0--py_0 qcat -f ./input_file.fastq -b ./output_folder/
 ```
 When running qcat using the above command, the input and output folders have to be in the current working directory. If you want to read from or write to locations other than your working directory, please adjust the `-v` parameter accordingly.
 
