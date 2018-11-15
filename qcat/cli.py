@@ -221,7 +221,7 @@ def is_fastq(filename):
     elif c == ">":
         return False
     else:
-        raise RuntimeError("Invalid input file. File must start with "
+        raise ValueError("Invalid input file. File must start with "
                            "'@' or '>'. Current file starts with: " + c)
 
 
@@ -567,48 +567,53 @@ def main(argv=sys.argv[1:]):
     :return: None
     :rtype: NoneType
     """
-    args = parse_args(argv=argv)
+    try:
+        args = parse_args(argv=argv)
 
-    qcat_config = config.get_default_config()
+        qcat_config = config.get_default_config()
 
-    numeric_level = getattr(logging, args.log.upper(), None)
-    if not isinstance(numeric_level, int):
-        raise ValueError('Invalid log level: %s' % args.log.upper())
-    logging.basicConfig(level=numeric_level, format='%(message)s')
+        numeric_level = getattr(logging, args.log.upper(), None)
+        if not isinstance(numeric_level, int):
+            raise ValueError('Invalid log level: %s' % args.log.upper())
+        logging.basicConfig(level=numeric_level, format='%(message)s')
 
-    if args.list_kits:
-        kits = get_kits_info()
-        for kit in sorted(kits.keys()):
-            if kit != "auto" and kit != "DUAL":
-                logging.info("{:<30}{}".format(kit, kits[kit]))
-        return
+        if args.list_kits:
+            kits = get_kits_info()
+            for kit in sorted(kits.keys()):
+                if kit != "auto" and kit != "DUAL":
+                    logging.info("{:<30}{}".format(kit, kits[kit]))
+            return
 
-    mode = get_mode(args)
-    kit = args.kit
-    if mode == "simple":
-        kit = args.SIMPLE_BARCODES
+        mode = get_mode(args)
+        kit = args.kit
+        if mode == "simple":
+            kit = args.SIMPLE_BARCODES
 
-    start = time.time()
-    qcat_cli(reads_fq=args.fastq,
-             # no_header=args.no_header,
-             kit=kit,
-             mode=mode,
-             nobatch=args.nobatch,
-             out=args.barcode_dir,
-             min_qual=args.min_qual,
-             tsv=args.tsv,
-             output=args.output,
-             threads=args.threads,
-             trim=args.TRIM,
-             adapter_yaml=None,#=args.adapter_yaml, #args.barcode_fa,
-             quiet=args.QUIET,
-             filter_barcodes=args.FILTER_BARCODES,
-             middle_adapter=args.DETECT_MIDDLE,
-             qcat_config=qcat_config)
-    end = time.time()
+        start = time.time()
+        qcat_cli(reads_fq=args.fastq,
+                 # no_header=args.no_header,
+                 kit=kit,
+                 mode=mode,
+                 nobatch=args.nobatch,
+                 out=args.barcode_dir,
+                 min_qual=args.min_qual,
+                 tsv=args.tsv,
+                 output=args.output,
+                 threads=args.threads,
+                 trim=args.TRIM,
+                 adapter_yaml=None,#=args.adapter_yaml, #args.barcode_fa,
+                 quiet=args.QUIET,
+                 filter_barcodes=args.FILTER_BARCODES,
+                 middle_adapter=args.DETECT_MIDDLE,
+                 qcat_config=qcat_config)
+        end = time.time()
 
-    if not args.QUIET:
-        logging.info("Demultiplexing finished in {0:.2f}s".format(end - start))
+        if not args.QUIET:
+            logging.info("Demultiplexing finished in {0:.2f}s".format(end - start))
+    except FileNotFoundError as e:
+        logging.error(e)
+    except ValueError as e:
+        logging.error(e)
 
 
 if __name__ == '__main__':
