@@ -22,25 +22,26 @@ from qcat.scanner_base import build_return_dict
 class BarcodeScannerGuppy(BarcodeScanner):
 
     # This is not very nice. Should be part of the config files.
-    KIT_MAPPING = {'NBD10X': 'NB',
+    KIT_MAPPING = {'NBD104/NBD114': 'NB',
                    'PBC096': 'BC',
                    'PBC001': 'BC',
                    'RBK001': 'RBK',
                    'RBK004': 'RBK4',
-                   'LWB001': 'LWB',
+                   'PBK004/LWB001': 'LWB',
                    'RPB004/RLB001': 'RLB',
-                   'RAB201': 'RAB'}
+                   'RAB204': 'RAB'}
 
-    KIT_MAPPING_REV = {'NB':   'NBD10X',
+    KIT_MAPPING_REV = {'NB':   'NBD104/NBD114',
                        'BC':   'PBC096',
                        'RBK':  'RBK001',
                        'RBK4': 'RBK004',
-                       'LBW':  'LWB001',
+                       'LBW':  'PBK004/LWB001',
                        'RLB':  'RPB004/RLB001',
-                       'RAB':   'RAB201'}
+                       'RAB':  'RAB204'}
 
     def __init__(self, min_quality=None, kit_folder=None, kit=None,
-                 enable_filter_barcodes=False, scan_middle_adapter=False, threads=1):
+                 enable_filter_barcodes=False, scan_middle_adapter=False,
+                 threads=1):
 
         if min_quality is None:
             min_quality = 60
@@ -48,6 +49,10 @@ class BarcodeScannerGuppy(BarcodeScanner):
         if scan_middle_adapter:
             logging.warning("Guppy/Albacore do not support scanning for "
                             "middle adapters. Ignoring parameter.")
+
+        if enable_filter_barcodes:
+            logging.warning("Guppy/Albacore do not support filtering "
+                            "barcodes in batch mode. Ignoring parameter.")
 
         super(BarcodeScannerGuppy, self).__init__(min_quality,
                                                   kit,
