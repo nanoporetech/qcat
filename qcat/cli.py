@@ -93,11 +93,13 @@ def parse_args(argv):
                         default=None,
                         help="Output file trimmed reads will be written to "
                              "(default: stdout).")
-    general_group.add_argument('-q', "--min-quality",
+    general_group.add_argument("--min-score",
                         dest="min_qual",
                         type=check_minqual_arg,
                         default=None,
-                        help="Minimum barcode quality. "
+                        help="Minimum barcode score. Barcode calls with a lower "
+                             "score will be discarded. Use only if you know what"
+                             "you are doing. See README for more information. "
                              "Must be between 0 and 100. (default: 60)")
     general_group.add_argument("--detect-middle",
                         dest="DETECT_MIDDLE",
