@@ -306,6 +306,8 @@ def get_output_file(output_files, out_folder, barcode_dict, fastq):
     bc_id = "none"
     if barcode_dict['barcode']:
         bc_id = barcode_dict['barcode'].name
+        if bc_id:
+            bc_id = bc_id.replace('/', '_')
 
     if bc_id not in output_files.keys():
         if fastq:
@@ -612,7 +614,7 @@ def main(argv=sys.argv[1:]):
 
         if not args.QUIET:
             logging.info("Demultiplexing finished in {0:.2f}s".format(end - start))
-    except FileNotFoundError as e:
+    except IOError as e:
         logging.error(e)
     except ValueError as e:
         logging.error(e)
