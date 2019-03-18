@@ -171,9 +171,9 @@ Full usage
 ------------
 ```
 usage: qcat [-h] [-V] [-l LOG] [--quiet] [-f FASTQ] [-b BARCODE_DIR]
-            [-o OUTPUT] [-q MIN_QUAL] [--detect-middle] [-t THREADS] [--tsv]
-            [--trim]
-            [-k {Auto,DUAL,NBD103/NBD104,NBD104/NBD114,NBD114,PBC001,PBC096,PBK004/LWB001,RAB204,RBK001,RBK004,RPB004/RLB001,VMK001}]
+            [-o OUTPUT] [--min-score MIN_QUAL] [--detect-middle] [-t THREADS]
+            [--tsv] [--trim]
+            [-k {Auto,PBC096,RBK004,NBD104/NBD114,PBK004/LWB001,RBK001,RAB204,VMK001,PBC001,NBD114,NBD103/NBD104,DUAL,RPB004/RLB001}]
             [--list-kits] [--guppy | --epi2me | --dual | --simple]
             [--no-batch] [--filter-barcodes]
             [--simple-barcodes {standard,extended}]
@@ -195,8 +195,8 @@ General settings:
   -o OUTPUT, --output OUTPUT
                         Output file trimmed reads will be written to (default:
                         stdout).
-  -q MIN_QUAL, --min-quality MIN_QUAL
-                        Minimum barcode quality. Must be between 0 and 100.
+  --min-score MIN_QUAL  Minimum barcode score. Barcode calls with a lower
+                        score will be discarded. Must be between 0 and 100.
                         (default: 60)
   --detect-middle       Search for adapters in the whole read
   -t THREADS, --threads THREADS
@@ -204,7 +204,7 @@ General settings:
   --tsv                 Prints a tsv file containing barcode information each
                         read to stdout.
   --trim                Remove adapter and barcode sequences from reads.
-  -k {Auto,DUAL,NBD103/NBD104,NBD104/NBD114,NBD114,PBC001,PBC096,PBK004/LWB001,RAB204,RBK001,RBK004,RPB004/RLB001,VMK001}, --kit {Auto,DUAL,NBD103/NBD104,NBD104/NBD114,NBD114,PBC001,PBC096,PBK004/LWB001,RAB204,RBK001,RBK004,RPB004/RLB001,VMK001}
+  -k {Auto,PBC096,RBK004,NBD104/NBD114,PBK004/LWB001,RBK001,RAB204,VMK001,PBC001,NBD114,NBD103/NBD104,DUAL,RPB004/RLB001}, --kit {Auto,PBC096,RBK004,NBD104/NBD114,PBK004/LWB001,RBK001,RAB204,VMK001,PBC001,NBD114,NBD103/NBD104,DUAL,RPB004/RLB001}
                         Sequencing kit. Specifying the correct kit will
                         improve sensitivity and specificity and runtime
                         (default: auto)
@@ -227,5 +227,4 @@ Simple options (only valid with --simple):
   --simple-barcodes {standard,extended}
                         Use 12 (standard) or 96 (extended) barcodes for
                         demultiplexing
-
 ```

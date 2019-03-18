@@ -98,8 +98,7 @@ def parse_args(argv):
                         type=check_minqual_arg,
                         default=None,
                         help="Minimum barcode score. Barcode calls with a lower "
-                             "score will be discarded. Use only if you know what"
-                             "you are doing. See README for more information. "
+                             "score will be discarded. "
                              "Must be between 0 and 100. (default: 60)")
     general_group.add_argument("--detect-middle",
                         dest="DETECT_MIDDLE",
