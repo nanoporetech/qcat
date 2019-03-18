@@ -70,7 +70,13 @@ KIT_FOLDER = pkg_resources.resource_filename(__name__, KIT_FOLDER)
 def read_adapter_layout(filename):
     with open(filename, 'r') as stream:
         try:
-            data = yaml.load(stream)
+            try:
+                # Python 3
+                data = yaml.load(stream, Loader=yaml.FullLoader)
+            except AttributeError:
+                # Python 2
+                data = yaml.load(stream)
+
             if not data.get('active', True):
                 return None
 
