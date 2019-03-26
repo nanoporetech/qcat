@@ -528,7 +528,7 @@ def qcat_cli(reads_fq, kit, mode, nobatch, out,
                                       sequence,
                                       tsv)
             # Write FASTQ/A files
-            if not tsv:
+            if out or not tsv:
                 write_to_file(trimmed_output_file,
                               output_files,
                               out,
