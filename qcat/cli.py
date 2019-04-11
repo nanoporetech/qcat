@@ -109,6 +109,12 @@ def parse_args(argv):
                         type=int,
                         default=1,
                         help="Number of threads. Only works with in guppy mode")
+    general_group.add_argument("--min-read-length",
+                               dest="min_length",
+                               type=int,
+                               default=100,
+                               help="Reads short than <min-read-length> after "
+                                    "trimming will be discarded.")
     general_group.add_argument("--tsv",
                         dest="tsv",
                         action='store_true',
@@ -437,7 +443,7 @@ def write_multiplexing_result(barcode_dict, comment, name, sequence, tsv):
 
 
 def qcat_cli(reads_fq, kit, mode, nobatch, out,
-               min_qual, tsv, output, threads, trim, adapter_yaml, quiet, filter_barcodes, middle_adapter,
+               min_qual, tsv, output, threads, trim, adapter_yaml, quiet, filter_barcodes, middle_adapter, min_read_length,
                qcat_config):
     """
     Runs barcode detection for each read in the fastq file
@@ -462,6 +468,7 @@ def qcat_cli(reads_fq, kit, mode, nobatch, out,
     """
 
     total_reads = 0
+    skipped_reads = 0
     barcode_dist = {}
     adapter_dist = {}
 
@@ -510,9 +517,6 @@ def qcat_cli(reads_fq, kit, mode, nobatch, out,
                                                             quals,
                                                             results):
             total_reads += 1
-            # Record which adapter/barcode was found
-            barcode_found(barcode_dist, result['barcode'])
-            adapter_found(adapter_dist, result['adapter'])
 
             if not notrimming:
                 trim_5p = result["trim5p"]
@@ -520,6 +524,14 @@ def qcat_cli(reads_fq, kit, mode, nobatch, out,
                 sequence = sequence[trim_5p:trim_3p]
                 if quality:
                     quality = quality[trim_5p:trim_3p]
+
+            if len(sequence) < min_read_length:
+                skipped_reads += 1
+                continue
+
+            # Record which adapter/barcode was found
+            barcode_found(barcode_dist, result['barcode'])
+            adapter_found(adapter_dist, result['adapter'])
 
             # Write tsv result file
             write_multiplexing_result(result,
@@ -544,6 +556,8 @@ def qcat_cli(reads_fq, kit, mode, nobatch, out,
 
     if not quiet:
         print_barcode_hist(barcode_dist, adapter_dist, total_reads)
+        if skipped_reads > 0:
+            logging.info("{} reads were skipped due to the min. length filter.".format(skipped_reads))
 
     if output:
         trimmed_output_file.close()
@@ -608,6 +622,7 @@ def main(argv=sys.argv[1:]):
                  quiet=args.QUIET,
                  filter_barcodes=args.FILTER_BARCODES,
                  middle_adapter=args.DETECT_MIDDLE,
+                 min_read_length=args.min_length,
                  qcat_config=qcat_config)
         end = time.time()
 
