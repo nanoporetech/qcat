@@ -1,7 +1,8 @@
 import logging
+import os
 
 from qcat import config
-from qcat.adapters import get_barcodes_simple
+from qcat.adapters import get_barcodes_simple, get_barcodes_from_fastq
 from qcat.scanner_base import BarcodeScanner, find_highest_scoring_barcode, \
     build_return_dict, empty_return_dict
 
@@ -24,7 +25,10 @@ class BarcodeScannerSimple(BarcodeScanner):
                                                    enable_filter_barcodes=enable_filter_barcodes,
                                                    scan_middle_adapter=scan_middle_adapter
                                                    )
-        self.barcodes = get_barcodes_simple(kit)
+        if os.path.isfile(kit) and os.path.exists(kit):
+            self.barcodes = get_barcodes_from_fastq(kit)
+        else:
+            self.barcodes = get_barcodes_simple(kit)
 
     @staticmethod
     def get_name():

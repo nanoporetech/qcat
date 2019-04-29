@@ -174,7 +174,7 @@ def parse_args(argv):
     simple_group = parser.add_argument_group('Simple options (only valid with --simple)')
     simple_group.add_argument("--simple-barcodes",
                               dest="SIMPLE_BARCODES",
-                              choices=['standard', 'extended'],
+                              # choices=['standard', 'extended'],
                               default="standard",
                               help="Use 12 (standard) or 96 (extended) barcodes for demultiplexing")
 

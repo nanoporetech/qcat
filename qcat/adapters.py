@@ -1,9 +1,12 @@
 import glob
 import os
 import logging
+
 import pkg_resources
 import yaml
 from collections import namedtuple
+
+from Bio.SeqIO.FastaIO import SimpleFastaParser
 
 from qcat.layout import AdapterLayout
 
@@ -97,6 +100,19 @@ def read_adapter_layout(filename):
                 model_len=model_len)
         except yaml.YAMLError as exc:
             print(exc)
+
+
+def get_barcodes_from_fastq(reads_fa):
+    barcode_id = 1
+    barcodes = []
+    with open(reads_fa) as f:
+        for title, seq in SimpleFastaParser(f):
+            barcodes.append(read_barcode({'name': title, 'id': barcode_id, 'sequence': seq}))
+            barcode_id += 1
+
+    if len(barcodes) <= 0:
+        logging.error("Couldn't find barcodes in {}".format(reads_fa))
+    return barcodes
 
 
 def get_barcodes_simple(kit="standard", filename=None):
