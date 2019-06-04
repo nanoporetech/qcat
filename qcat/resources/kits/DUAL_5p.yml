@@ -1,52 +1,100 @@
 barcode_set_1:
 - fwd_strand: false
   id: 1
-  name: BC01
+  name: barcode01
   sequence: CACAAAGACACCGACAACTTTCTT
 - fwd_strand: false
   id: 2
-  name: BC02
+  name: barcode02
   sequence: ACAGACGACTACAAACGGAATCGA
 - fwd_strand: false
   id: 3
-  name: BC03
+  name: barcode03
   sequence: CCTGGTAACTGGGACACAAGACTC
 - fwd_strand: false
   id: 4
-  name: BC04
+  name: barcode04
   sequence: TAGGGAAACACGATAGAATCCGAA
 - fwd_strand: false
   id: 5
-  name: BC05
+  name: barcode05
   sequence: AAGGTTACACAAACCCTGGACAAG
 - fwd_strand: false
   id: 6
-  name: BC06
+  name: barcode06
   sequence: GACTACTTTCTGCCTTTGCGAGAA
 - fwd_strand: false
   id: 7
-  name: BC07
+  name: barcode07
   sequence: AAGGATTCATTCCCACGGTAACAC
 - fwd_strand: false
   id: 8
-  name: BC08
+  name: barcode08
   sequence: ACGTAACTTGGTTTGTTCCCTGAA
 - fwd_strand: false
   id: 9
-  name: BC09
+  name: barcode09
   sequence: AACCAAGACTCGCTGTGCCTAGTT
 - fwd_strand: false
   id: 10
-  name: BC10
+  name: barcode10
   sequence: GAGAGGACAAAGGTTTCAACGCTT
 - fwd_strand: false
   id: 11
-  name: BC11
+  name: barcode11
   sequence: TCCATTCCCTCCGATAGATGAAAC
 - fwd_strand: false
   id: 12
-  name: BC12
+  name: barcode12
   sequence: TCCGATTCTGCTTCTTTCTACCTG
+- fwd_strand: true
+  id: 13
+  name: barcode13
+  sequence: AGAACGACTTCCATACTCGTGTGA
+- fwd_strand: true
+  id: 14
+  name: barcode14
+  sequence: AACGAGTCTCTTGGGACCCATAGA
+- fwd_strand: true
+  id: 15
+  name: barcode15
+  sequence: AGGTCTACCTCGCTAACACCACTG
+- fwd_strand: true
+  id: 16
+  name: barcode16
+  sequence: CGTCAACTGACAGTGGTTCGTACT
+- fwd_strand: true
+  id: 17
+  name: barcode17
+  sequence: ACCCTCCAGGAAAGTACCTCTGAT
+- fwd_strand: true
+  id: 18
+  name: barcode18
+  sequence: CCAAACCCAACAACCTAGATAGGC
+- fwd_strand: true
+  id: 19
+  name: barcode19
+  sequence: GTTCCTCGTGCAGTGTCAAGAGAT
+- fwd_strand: true
+  id: 20
+  name: barcode20
+  sequence: TTGCGTCCTGTTACGAGAACTCAT
+- fwd_strand: true
+  id: 21
+  name: barcode21
+  sequence: GAGCCTCTCATTGTCCGTTCTCTA
+- fwd_strand: true
+  id: 22
+  name: barcode22
+  sequence: ACCACTGCCATGTATCAAAGTACG
+- fwd_strand: true
+  id: 23
+  name: barcode23
+  sequence: CTTACTACCCAGTGAACCTCCTCG
+- fwd_strand: true
+  id: 24
+  name: barcode24
+  sequence: GCATAGTTCTGCATGATGGGTTAG
 barcode_set_2:
 - fwd_strand: true
   id: 1
@@ -436,4 +484,4 @@ description: Dual barcoding native + PCR
 auto_detect: false
 kit: DUAL
 model: null
-sequence: "AAGGTTAANNNNNNNNNNNNNNNNNNNNNNNNCAGCACCTGGTGCTGNNNNNNNNNNNNNNNNNNNNNNNNTTAACCTACTTGCCTGTCGCTCTATCTTCGGCGTCTGCTTGGGTGTTTAACCT"
+sequence: "AGGTTAANNNNNNNNNNNNNNNNNNNNNNNNCAGCACCTGGTGCTGNNNNNNNNNNNNNNNNNNNNNNNNTTAACCTTTCTGTTGGTGCTGATATTGC"
