@@ -584,6 +584,7 @@ def full_run(path):
         if result['barcode']:
             bc = str(result['barcode'].id)
 
+        print(bc, truebc)
         if bc == truebc:
             correct += 1
         else:
@@ -610,6 +611,46 @@ def test_full_run_rad003():
 
     print("Incorrect: {}, False negative: {}".format(incorrect_perc, fn_perc))
     assert incorrect_perc <= 0.08
+    assert fn_perc == 0.0
+
+
+def test_full_run_nbd103():
+
+    path = "qcat/test/data/nbd103.fastq"
+    incorrect_perc, fn_perc = full_run(path)
+
+    print("Incorrect: {}, False negative: {}".format(incorrect_perc, fn_perc))
+    assert incorrect_perc <= 0.00
+    assert fn_perc == 0.0
+
+
+def test_full_run_pbk004():
+
+    path = "qcat/test/data/pbk004.fastq"
+    incorrect_perc, fn_perc = full_run(path)
+
+    print("Incorrect: {}, False negative: {}".format(incorrect_perc, fn_perc))
+    assert incorrect_perc <= 0.00
+    assert fn_perc == 0.0
+
+
+def test_full_run_rab204():
+
+    path = "qcat/test/data/rab204.fastq"
+    incorrect_perc, fn_perc = full_run(path)
+
+    print("Incorrect: {}, False negative: {}".format(incorrect_perc, fn_perc))
+    assert incorrect_perc <= 0.00
+    assert fn_perc == 0.0
+
+
+def test_full_run_rbk004():
+
+    path = "qcat/test/data/rbk004.fastq"
+    incorrect_perc, fn_perc = full_run(path)
+
+    print("Incorrect: {}, False negative: {}".format(incorrect_perc, fn_perc))
+    assert incorrect_perc <= 0.00
     assert fn_perc == 0.0
 
 
@@ -657,5 +698,5 @@ def test_trimming():
 
     fp = fp / i * 100.0
 
-    assert fp <= 0.0 # 2.0
+    assert fp <= 0.2 # 2.0
 

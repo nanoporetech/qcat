@@ -539,13 +539,13 @@ class BarcodeScanner(object):
                                     [],
                                     qcat_config=qcat_config)
 
-        if barcode_dict_5p and barcode_dict_5p[
-            'barcode_score'] < self.min_quality:
-            barcode_dict_5p = empty_return_dict()
-
         trim_5p = 0
         if barcode_dict_5p['adapter_end'] > 0:
             trim_5p = barcode_dict_5p['adapter_end']
+
+        if barcode_dict_5p and barcode_dict_5p[
+            'barcode_score'] < self.min_quality:
+            barcode_dict_5p = empty_return_dict()
 
         # Check 3' end
         align_seq_5p_rc = extract_align_sequence(read_sequence,
@@ -558,14 +558,14 @@ class BarcodeScanner(object):
                                        [],
                                        qcat_config=qcat_config)
 
-        if barcode_dict_5p_rc and \
-                barcode_dict_5p_rc['barcode_score'] < self.min_quality:
-            barcode_dict_5p_rc = empty_return_dict()
-
         trim_3p = len(read_sequence)
         if barcode_dict_5p_rc['adapter'] and barcode_dict_5p_rc[
             'adapter_end'] > 0:
             trim_3p = trim_3p - barcode_dict_5p_rc['adapter_end']
+
+        if barcode_dict_5p_rc and \
+                barcode_dict_5p_rc['barcode_score'] < self.min_quality:
+            barcode_dict_5p_rc = empty_return_dict()
 
         # Find best barcode
         results = [barcode_dict_5p, barcode_dict_5p_rc]

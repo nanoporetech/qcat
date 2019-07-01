@@ -96,6 +96,7 @@ def read_adapter_layout(filename):
                 barcode_set_2=read_barcode_set(data.get('barcode_set_2', None)),
                 description=data.get('description', ""),
                 auto_detect=data.get('auto_detect', False),
+                trim_offset=data.get("trim_offset", 0),
                 model=model,
                 model_len=model_len)
         except yaml.YAMLError as exc:

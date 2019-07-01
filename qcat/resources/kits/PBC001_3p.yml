@@ -51,6 +51,7 @@ barcode_set_2: []
 description: PCR Barcoding Kit with 12 barcodes
 auto_detect: false
 kit: PBC001
+trim_offset: 26
 model:
 #  file: pcr_amplicons_12bc.h5
   file: PCR_1646_1647.h5

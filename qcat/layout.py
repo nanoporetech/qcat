@@ -11,7 +11,7 @@ class AdapterLayout:
     adapter layout
     """
 
-    def __init__(self, kit, sequence, barcode_set_1, barcode_set_2, description, auto_detect=False, model=None, model_len=None, name=None):
+    def __init__(self, kit, sequence, barcode_set_1, barcode_set_2, description, auto_detect=False, model=None, model_len=None, name=None, trim_offset=0):
         """
         Init
 
@@ -27,6 +27,7 @@ class AdapterLayout:
         self.auto_detect = auto_detect
         self.model = model
         self.model_len = model_len
+        self.trim_offset = trim_offset
         if not name:
             self.name = self.kit
         else:

@@ -132,6 +132,9 @@ class BarcodeScannerEPI2ME(BarcodeScanner):
         else:
             logging.debug("Adapter type does not have second barcode")
 
+        aligned_adapter_end = min(aligned_adapter_end +
+                                  best_adapter_template.trim_offset,
+                                  len(read_sequence))
         return build_return_dict(
             best_barcode=best_barcode,
             best_barcode_score=best_barcode_q_score,

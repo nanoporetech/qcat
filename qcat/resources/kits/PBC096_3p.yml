@@ -387,6 +387,7 @@ barcode_set_2: []
 description: PCR Barcoding Kit with 96 barcodes
 auto_detect: true
 kit: PBC096
+trim_offset: 26
 model:
 #  file: PCR_1646_1647.h5
 #  file: pcb096_model_small.h5
