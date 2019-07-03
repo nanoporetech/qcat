@@ -1,3 +1,5 @@
+from builtins import AttributeError
+
 import glob
 import os
 import logging
@@ -122,7 +124,12 @@ def get_barcodes_simple(kit="standard", filename=None):
 
     with open(filename, 'r') as stream:
         try:
-            data = yaml.load(stream)
+            try:
+                # Python 3
+                data = yaml.load(stream, Loader=yaml.FullLoader)
+            except AttributeError:
+                # Python 2
+                data = yaml.load(stream)
             return read_barcode_set(data.get('barcode_set_1', []))
         except yaml.YAMLError as exc:
             print(exc)
