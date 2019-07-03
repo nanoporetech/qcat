@@ -12,6 +12,15 @@ In addition, qcat supports demultiplexing of datasets prepared using dual or com
 
 If you want to demultiplex your reads during basecalling, please use [albacore](https://github.com/nanoporetech/albacore).
 
+Change log
+------------
+
+**v1.0.6**
+- Fixed issue with file names in dual barcoding mode
+- Resolved problem when using –tsv and -b at the same time
+- Min. read length filter added
+- Fixed YAMLLoadWarning
+
 Requirements
 ------------
 * Linux or MacOS
@@ -228,3 +237,21 @@ Simple options (only valid with --simple):
                         Use 12 (standard) or 96 (extended) barcodes for
                         demultiplexing
 ```
+
+**Licence and Copyright**
+
+© 2018 Oxford Nanopore Technologies Ltd.
+
+`qcat` is distributed under the terms of the Mozilla Public License 2.0.
+
+**Research Release**
+
+Research releases are provided as technology demonstrators to provide early
+access to features or stimulate Community development of tools. Support for
+this software will be minimal and is only provided directly by the developers.
+Feature requests, improvements, and discussions are welcome and can be
+implemented by forking and pull requests. However much as we would
+like to rectify every issue and piece of feedback users may have, the 
+developers may have limited resource for support of this software. Research
+releases may be unstable and subject to rapid iteration by Oxford Nanopore
+Technologies.
