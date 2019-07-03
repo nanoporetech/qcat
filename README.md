@@ -14,6 +14,8 @@ If you want to demultiplex your reads during basecalling, please use [albacore](
 
 Change log
 ------------
+**v1.0.7**
+- Fix PBC and PBK adapter trimming
 
 **v1.0.6**
 - Fixed issue with file names in dual barcoding mode
