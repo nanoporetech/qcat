@@ -16,6 +16,9 @@ If you want to demultiplex your reads during basecalling, please use [albacore](
 
 Change log
 ------------
+**v1.1.0**
+- Add RAB214
+
 **v1.0.7**
 - Fix PBC and PBK adapter trimming
 
