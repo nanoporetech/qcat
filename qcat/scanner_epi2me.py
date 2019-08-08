@@ -69,9 +69,9 @@ class BarcodeScannerEPI2ME(BarcodeScanner):
 
         # For high quality adapter alignments just use the barcode region,
         # for low quality compare full adapter to the barcodes
-        # Do not scann full adapter is it contains double barcoding
+        # Do not scan full adapter if it contains double barcoding
         # best_adapter_score > 90.0 or
-        if best_adapter_score > 90.0 or best_adapter_template.is_doulbe_barcode():
+        if best_adapter_score > 90.0 or best_adapter_template.is_double_barcode():
             barcode_region_read = extract_barcode_region(
                 read_sequence=read_sequence,
                 adapter_template=best_adapter_template,
