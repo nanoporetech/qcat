@@ -1,5 +1,5 @@
 ---
-name: Create and issue
+name: Create an issue
 about: Create a report to help us improve
 title: ''
 labels: ''
