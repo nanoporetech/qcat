@@ -1,6 +1,9 @@
 ![.](ONT_logo.png  "Oxford Nanopore Technologies")
 ******************
 
+***Deprecation notice:*** *This software is considered deprecated. Users wishing to demultiplex reads should use the functionality within the Guppy basecaller. Guppy can be downloaded from: https://community.nanoporetech.com/downloads*
+
+
 # qcat
 
 `qcat` is a Python command-line tool for demultiplexing Oxford Nanopore reads from FASTQ files. It accepts basecalled FASTQ files and splits the reads into into separate FASTQ files based on their barcode. Qcat makes the demultiplexing algorithms used in albacore/guppy and EPI2ME available to be used locally with FASTQ files. Currently qcat implements the EPI2ME algorithm. In the next version we will add the albacore/guppy algorithm.
