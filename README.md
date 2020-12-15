@@ -1,7 +1,17 @@
 ![.](ONT_logo.png  "Oxford Nanopore Technologies")
-******************
 
-***Deprecation notice:*** *This software is considered deprecated. Users wishing to demultiplex reads should use the functionality within the Guppy basecaller. Guppy can be downloaded from: https://community.nanoporetech.com/downloads*
+***Deprecation notice:*** 
+
+*The demultiplexing within the Guppy basecaller should be used in preference
+to that found within this project. Guppy is rountinely updated and will
+provide ongoing updates for new sequencing kits.*
+
+*Guppy can be downloaded from: https://community.nanoporetech.com/downloads*
+
+*This repository is now unsupported and we do not recommend its use. Please
+contact Oxford Nanopore: support@nanoporetech.com for help with your
+application if it is not possible to upgrade to our new resources, or we are
+missing key features.*
 
 
 # qcat
