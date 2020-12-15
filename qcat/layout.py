@@ -19,7 +19,7 @@ class AdapterLayout:
         :param layout_id: Unique ID
         :param sequence: Descriptive name for the adapter
         :param barcode_set_1: Set of barcodes supported by the kit
-        :param barcode_set_2: Set of secondary barcodes supported (double barconding)
+        :param barcode_set_2: Set of secondary barcodes supported (double barcoding)
         :param kits: List of kits using this adapter
         :param description: Free text description
         """
@@ -237,7 +237,7 @@ class AdapterLayout:
         else:
             return ""
 
-    def is_doulbe_barcode(self):
+    def is_double_barcode(self):
         """
         Returns true if the kit has two barcodes per adapter
         end of the read
